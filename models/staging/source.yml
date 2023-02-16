@@ -1,0 +1,11 @@
+
+version: 2
+
+sources:
+  - name: staging
+    database: data-engineering-demo-375721
+    schema: dezoomcamp_de
+
+    tables:
+      - name: external_green_taxi_rides
+      - name: external_yellow_taxi_rides
