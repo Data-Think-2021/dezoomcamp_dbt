@@ -39,6 +39,9 @@ models:
     core:
       materialized: view
 
+vars:
+  payment_type_values: [1, 2, 3, 4, 5, 6]
+  
 seeds: 
   dezoomcamp_dbt:
       taxi_zone_lookup:

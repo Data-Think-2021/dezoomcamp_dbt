@@ -1,5 +1,12 @@
 {{ config(materialized='view') }}
 
+with tripdata as 
+(
+  select *,
+    row_number() over(partition by pickup_datetime) as rn
+  from {{ source('staging','fvhridesnew') }}
+)
+
 select
    -- identifiers
     cast(dispatching_base_num as integer) as dispatching_base_num,
@@ -13,7 +20,7 @@ select
     -- trip info
     cast(Affiliated_base_number as Integer) as Affiliated_base_number,
 
-from {{ source('staging', 'fvhridesnew') }}
+from tripdata
 
 -- dbt build --m <model.sql> --var 'is_test_run: false'
 {% if var('is_test_run', default=true) %}
