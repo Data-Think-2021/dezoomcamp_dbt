@@ -7,5 +7,6 @@ sources:
     schema: dezoomcamp_de
 
     tables:
-      - name: external_green_taxi_rides
-      - name: external_yellow_taxi_rides
+      - name: green_taxi_rides
+      - name: yellow_taxi_rides
+      - name: fvhridesnew

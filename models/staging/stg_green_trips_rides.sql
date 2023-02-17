@@ -29,7 +29,7 @@ select  -- identifiers
     cast(payment_type as integer) as payment_type,
     {{ get_payment_type_description('payment_type') }} as payment_type_description, 
     cast(congestion_surcharge as numeric) as congestion_surcharge
-from {{ source('staging', 'external_green_taxi_rides') }}
+from {{ source('staging', 'green_taxi_rides') }}
 where vendorid is not null
 -- dbt build --m <model.sql> --var 'is_test_run: false'
 {% if var('is_test_run', default=true) %}
