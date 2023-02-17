@@ -38,3 +38,9 @@ models:
       materialized: view
     core:
       materialized: view
+
+seeds: 
+  dezoomcamp_dbt:
+      taxi_zone_lookup:
+          +column_types:
+              locationid: numeric

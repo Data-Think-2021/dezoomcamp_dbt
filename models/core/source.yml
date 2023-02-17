@@ -1,0 +1,7 @@
+
+version: 2
+
+sources:
+  - name: core
+    database: data-engineering-demo-375721
+    schema: dezoomcamp_de
