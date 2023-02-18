@@ -9,7 +9,6 @@ dim_zones as (
     select * from {{ ref('dim_zones') }}
     where borough != 'Unknown'
 )
-## keep only records with known pickup and dropoff locations entries for pickup and dropoff locations. 
 select 
     fhv_data.dispatching_base_num, 
     pickup_zone.borough as pickup_borough, 
