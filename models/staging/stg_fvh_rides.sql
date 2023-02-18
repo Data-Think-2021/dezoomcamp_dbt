@@ -8,8 +8,8 @@ with tripdata as
 )
 
 select
-   -- identifiers
-    cast(dispatching_base_num as integer) as dispatching_base_num,
+    -- identifiers
+    dispatching_base_num,
     cast(PUlocationID as integer) as  pickup_locationid,
     cast(DOlocationID as integer) as dropoff_locationid,
     
@@ -18,9 +18,10 @@ select
     cast(dropOff_datetime as timestamp) as dropoff_datetime,
     
     -- trip info
-    cast(Affiliated_base_number as Integer) as affiliated_base_number,
+    Affiliated_base_number as affiliated_base_number
 
 from tripdata
+where rn = 1
 
 -- dbt build --m <model.sql> --var 'is_test_run: false'
 {% if var('is_test_run', default=true) %}

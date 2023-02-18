@@ -1,7 +1,7 @@
 {{ config(materialized='table') }}
 
 
-fhv_data as (
+with fhv_data as (
     select *
     from {{ ref('stg_fvh_rides') }}
 ), 
@@ -9,6 +9,7 @@ dim_zones as (
     select * from {{ ref('dim_zones') }}
     where borough != 'Unknown'
 )
+
 select 
     fhv_data.dispatching_base_num, 
     pickup_zone.borough as pickup_borough, 
