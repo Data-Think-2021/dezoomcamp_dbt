@@ -18,7 +18,7 @@ select
     cast(dropOff_datetime as timestamp) as dropoff_datetime,
     
     -- trip info
-    cast(Affiliated_base_number as Integer) as Affiliated_base_number,
+    cast(Affiliated_base_number as Integer) as affiliated_base_number,
 
 from tripdata
 
